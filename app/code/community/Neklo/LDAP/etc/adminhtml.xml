@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <neklo_ldap translate="title" module="neklo_ldap">
+                                        <title>LDAP - NEKLO LLC</title>
+                                        <sort_order>500</sort_order>
+                                    </neklo_ldap>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
