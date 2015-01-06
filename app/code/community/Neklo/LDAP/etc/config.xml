@@ -27,6 +27,14 @@
                     </auth>
                 </observers>
             </controller_action_predispatch>
+            <controller_action_predispatch_adminhtml_system_config_edit>
+                <observers>
+                    <neklo_ldap_config_page>
+                        <class>neklo_ldap/observer</class>
+                        <method>actionPreDispatchConfigPage</method>
+                    </neklo_ldap_config_page>
+                </observers>
+            </controller_action_predispatch_adminhtml_system_config_edit>
         </events>
     </adminhtml>
     <default>

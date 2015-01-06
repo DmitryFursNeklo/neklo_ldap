@@ -9,6 +9,17 @@ class Neklo_LDAP_Model_Observer
         Mage::getModel('admin/observer')->actionPreDispatchAdmin($observer);
     }
 
+    public function actionPreDispatchConfigPage($observer)
+    {
+        $request = $observer->getControllerAction()->getRequest();
+        $currentSection = $request->getParam('section', null);
+        if ($currentSection === 'neklo_ldap' && !Mage::helper('neklo_ldap')->isLdapExtensionLoaded()) {
+            Mage::getSingleton('adminhtml/session')->addError(
+                Mage::helper('neklo_ldap')->__('PHP LDAP extension is required.')
+            );
+        }
+    }
+
     protected function _processAdminAction()
     {
         if (!Mage::helper('neklo_ldap')->isEnabled()) {
