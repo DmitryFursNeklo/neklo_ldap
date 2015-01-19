@@ -13,7 +13,7 @@ class Neklo_LDAP_Model_Connector extends Varien_Object
     {
         // connect to ldap
         if (is_null($this->getConnection())) {
-            $this->_connection = ldap_connect($this->getConfig()->getHost(), $this->getConfig()->getPort());
+            $this->_connection = ldap_connect($this->getConfig()->getFullHost(), $this->getConfig()->getPort());
         }
 
         // set protocol version

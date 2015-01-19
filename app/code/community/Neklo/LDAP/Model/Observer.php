@@ -79,12 +79,13 @@ class Neklo_LDAP_Model_Observer
             Mage::dispatchEvent('admin_session_user_login_success', array('user' => $user));
             $redirectUrl = Mage::getSingleton('adminhtml/url')->getUrl('*/*/*', array('_current' => true));
 
+            $request->setPost('login', null);
             Mage::app()->getResponse()
                 ->clearHeaders()
                 ->setRedirect($redirectUrl)
-                ->sendHeadersAndExit();
-
-            $request->setPost('login', null);
+                ->sendHeaders()
+            ;
+            exit;
         } catch (Exception $e) {
 
         }
